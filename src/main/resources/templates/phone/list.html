@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <script>
+        const successMessage = '[[${successMessage}]]';
+        if(successMessage) alert(successMessage);
+    </script>
+</head>
+<body>
+    <div th:include="common/header.html"></div>
+
+    <table>
+        <tr>
+            <th>모델 코드</th>
+            <th>모델명</th>
+            <th>모델 가격</th>
+        </tr>
+        <tr th:each="phone : ${phoneList}">
+            <td th:text="${phone.phoneCode}"></td>
+            <td th:text="${phone.phoneName}"></td>
+            <td th:text="${phone.phonePrice}"></td>
+        </tr>
+    </table>
+
+    <div th:include="common/footer.html"></div>
+</body>
+</html>

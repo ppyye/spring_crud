@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.crud.phone.model.dao.PhoneMapper">
+
+    <select id="selectAllList" resultType="com.study.crud.phone.model.dto.PhoneDTO">
+        SELECT
+            phone_code,
+            phone_name,
+            phone_price
+        FROM
+            phone
+        ORDER BY
+            phone_code
+    </select>
+
+    <insert id="registPhone">
+        INSERT INTO
+            phone (phone_name, phone_price)
+        VALUES
+            (#{phoneName}, #{phonePrice})
+    </insert>
+
+    <delete id="deletePhone">
+        DELETE FROM
+            phone
+        WHERE
+            phone_code = #{phoneCode}
+    </delete>
+</mapper>
